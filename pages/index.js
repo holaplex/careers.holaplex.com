@@ -10,17 +10,18 @@ import Link from 'next/link';
 import formatDate from '../utils/formatDate';
 import Image from 'next/image';
 
-function Job({ slug, date, title, description }) {
-
-	return <Link href={`/job/${slug}`}>
-		<a>
-			<div className='p-4 border border-gray-600 my-4 rounded-xl'>
-				<h2 className='mt-0'>{title}</h2>
-				<p className='mt-4 mb-0'>{description}</p>
-				<p className='mt-4 mb-0'>{formatDate(date)}</p>
-			</div>
-		</a>
-	</Link>
+function Job({ slug, date, title, description, link }) {
+	return <div className='p-4 border border-gray-600 my-4 rounded-xl relative overflow-hidden'>
+		<h2 className='mt-0'>{title}</h2>
+		<p className='mt-4 mb-0'>{description}</p>
+		<p className='mt-4 mb-0'>{formatDate(date)}</p>
+		<Link href={`/job/${slug}`}>
+			<a className='absolute inset-0' />
+		</Link>
+		{link ? <a href={link} className='absolute top-0 right-0 p-1' target='_blank' rel='noreferrer'>
+			🔗
+		</a> : <></>}
+	</div>
 }
 
 import hiringImage from '../public/img/hiring.png';

@@ -34,6 +34,10 @@ collections:
         name: "description"
         widget: "text"
         required: true
+      - label: "External link"
+        name: "link"
+        widget: "text"
+        required: true
       - label: "Body"
         name: "body"
         widget: "markdown"
