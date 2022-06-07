@@ -8,6 +8,7 @@ import config from "../lib/config";
 import { countJobs, listJobContent } from "../lib/jobs";
 import Link from 'next/link';
 import formatDate from '../utils/formatDate';
+import Image from 'next/image';
 
 function Job({ slug, date, title, description }) {
 
@@ -22,6 +23,8 @@ function Job({ slug, date, title, description }) {
 	</Link>
 }
 
+import hiringImage from '../public/img/hiring.png';
+
 export default function Home({ jobs, pagination }) {
 	let { title, text } = attributes;
 
@@ -31,7 +34,18 @@ export default function Home({ jobs, pagination }) {
 			<Metadata title={title} />
 
 			<Section>
-				<Container variant="slim">
+				<div className='flex flex-col lg:flex-row gap-8 items-center mx-auto w-full p-8' style={{ maxWidth: '1200px' }}>
+					<div className='w-full lg:w-6/12 max-w-md'>
+						<Image src={hiringImage} />
+					</div>
+					<div className='w-full lg:w-6/12 text-center lg:text-left'>
+						<h1>Careers at Holaplex</h1>
+						<p>Selling NFTs is easier than ever thanks to Metaplex's AuctionHouse. NFTs never leave your wallet until sold and can be listed on any number of AuctionHouse supported marketplaces.</p>
+					</div>
+				</div>
+			</Section>
+			<Section>
+				<Container variant="slim" className='flex gap-4 flex-wrap justify-center items-center'>
 					{jobs.map(it => <Job key={it.slug} {...it} />)}
 				</Container>
 			</Section>
