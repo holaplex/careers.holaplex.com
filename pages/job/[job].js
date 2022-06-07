@@ -1,7 +1,7 @@
 import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
 import matter from "gray-matter";
-import { fetchPostContent } from "../../lib/posts";
+import { fetchJobContent } from "../../lib/jobs";
 import fs from "fs";
 import yaml from "js-yaml";
 import { parseISO } from 'date-fns';
@@ -16,11 +16,11 @@ import Container from "../../components/container";
 import formatDate from "../../utils/formatDate";
 
 const components = { YouTube, TwitterTweetEmbed };
-const slugToPostContent = (postContents => {
+const slugToJobContent = (jobContents => {
 	let hash = {}
-	postContents.forEach(it => hash[it.slug] = it)
+	jobContents.forEach(it => hash[it.slug] = it)
 	return hash;
-})(fetchPostContent());
+})(fetchJobContent());
 
 export default function Job({
 	title,
@@ -62,7 +62,7 @@ export default function Job({
 }
 
 export const getStaticPaths = async () => {
-	const paths = fetchPostContent().map(it => "/job/" + it.slug);
+	const paths = fetchJobContent().map(it => "/job/" + it.slug);
 	return {
 		paths,
 		fallback: false,
@@ -75,7 +75,7 @@ const replaceTags = (content) => {
 
 export const getStaticProps = async ({ params }) => {
 	const slug = params.job
-	const source = fs.readFileSync(slugToPostContent[slug].fullPath, "utf8");
+	const source = fs.readFileSync(slugToJobContent[slug].fullPath, "utf8");
 	const { content, data } = matter(source.replace(/\]\(uploads\//g, '](/uploads/'), {
 		engines: { yaml: (s) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) }
 	});

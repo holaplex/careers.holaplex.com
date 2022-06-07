@@ -18,15 +18,15 @@ div>img {
 	max-width: 100%;
 }
 
-.post-date {
+.job-date {
 	color: rgba(255, 255, 255, 0.6);
 	text-align: center;
 }
 
-.post-content p {
+.job-content p {
 	color: rgba(255, 255, 255, 0.6);
 }
 
-.post-content a {
+.job-content a {
 	color: white;
 }

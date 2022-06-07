@@ -5,11 +5,11 @@ import Section from '../components/section';
 import Container from '../components/container';
 import Metadata from '../components/metadata';
 import config from "../lib/config";
-import { countPosts, listPostContent } from "../lib/posts";
+import { countJobs, listJobContent } from "../lib/jobs";
 import Link from 'next/link';
 import formatDate from '../utils/formatDate';
 
-function Post({ slug, date, title, description }) {
+function Job({ slug, date, title, description }) {
 
 	return <Link href={`/job/${slug}`}>
 		<a>
@@ -22,7 +22,7 @@ function Post({ slug, date, title, description }) {
 	</Link>
 }
 
-export default function Home({ posts, pagination }) {
+export default function Home({ jobs, pagination }) {
 	let { title, text } = attributes;
 
 	console.log(pagination);
@@ -32,7 +32,7 @@ export default function Home({ posts, pagination }) {
 
 			<Section>
 				<Container variant="slim">
-					{posts.map(it => <Post key={it.slug} {...it} />)}
+					{jobs.map(it => <Job key={it.slug} {...it} />)}
 				</Container>
 			</Section>
 		</Layout>
@@ -40,14 +40,14 @@ export default function Home({ posts, pagination }) {
 }
 
 export const getStaticProps = async () => {
-	const posts = listPostContent(1, config.posts_per_page);
+	const jobs = listJobContent(1, config.jobs_per_page);
 	const pagination = {
 		current: 1,
-		pages: Math.ceil(countPosts() / config.posts_per_page),
+		pages: Math.ceil(countJobs() / config.jobs_per_page),
 	};
 	return {
 		props: {
-			posts,
+			jobs,
 			pagination,
 		},
 	};

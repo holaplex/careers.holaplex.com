@@ -42,21 +42,20 @@
 
 		CMS.registerPreviewStyle("/admin/preview.css");
 		CMS.registerPreviewStyle("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-		const PostPreview = createClass({
+		const JobPreview = createClass({
 			render: function () {
 				const entry = this.props.entry;
 				const image = entry.getIn(['data', 'image']);
 				const bg = this.props.getAsset(image);
 				return h('div', {},
 					h('h1', {}, entry.getIn(['data', 'title'])),
-					h('img', { src: bg.toString() }),
-					h('p', { "className": "post-date" }, formatDate(entry.getIn(['data', 'date']))),
-					h('div', { "className": "post-content" }, this.props.widgetFor('body'))
+					h('p', { "className": "job-date" }, formatDate(entry.getIn(['data', 'date']))),
+					h('div', { "className": "job-content" }, this.props.widgetFor('body'))
 				);
 			}
 		});
 
-		CMS.registerPreviewTemplate("posts", PostPreview);
+		CMS.registerPreviewTemplate("jobs", JobPreview);
 	</script>
 </body>
 
