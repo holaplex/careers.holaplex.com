@@ -29,6 +29,7 @@ export default function Job({
 	description,
 	source,
 	image,
+	link,
 }) {
 	const content = hydrate(source, { components })
 	return (
@@ -48,9 +49,16 @@ export default function Job({
 						className='w-full mx-auto my-4'
 						alt=''
 					/>}
-					<p className="text-center my-4">{formatDate(dateString)}</p>
 
 					<div className="w-full lg:w-11/12 mx-auto">
+						<div className="w-full flex flex-wrap gap-2 lg:gap-4 items-center">
+							{link ? <a href={link} target="_blank" rel="noreferrer">
+								<button className="bg-gray-700 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">
+									Apply
+								</button>
+							</a> : <></>}
+							<p className="my-4">Posted {formatDate(dateString)}</p>
+						</div>
 						<GenericContent>
 							{content}
 						</GenericContent>
@@ -85,6 +93,7 @@ export const getStaticProps = async ({ params }) => {
 			title: data.title,
 			dateString: data.date,
 			description: data.description || "",
+			link: data.link || "",
 			source: mdxSource,
 			slug,
 		},
