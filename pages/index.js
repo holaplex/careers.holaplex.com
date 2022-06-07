@@ -2,18 +2,16 @@ import { attributes, react as HomeContent } from '../content/home.md';
 
 import Layout from '../components/layout';
 import Section from '../components/section';
-import Container from '../components/container';
 import Metadata from '../components/metadata';
 import config from "../lib/config";
 import { countJobs, listJobContent } from "../lib/jobs";
 import Link from 'next/link';
-import formatDate from '../utils/formatDate';
 import Image from 'next/image';
 
 function Job({ slug, date, title, description, link }) {
 	return <div className='w-full md:w-5/12 lg:w-3/12 p-4 border border-gray-600 my-4 rounded-xl text-center relative overflow-hidden'>
 		<h2 className='mt-0'>{title}</h2>
-		<p className='mt-4 mb-0'>{description}</p>
+		<p className='my-4'>{description}</p>
 		<div className='my-1 flex flex-wrap gap-1 items-center justify-center'>
 			<Link href={`/job/${slug}`}>
 				<a>
