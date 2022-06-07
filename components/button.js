@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 import styled from '@emotion/styled';
 
 const StyledButton = styled.button`
-	background-color: var(--theme-base-light);
-	color: var(--theme-content-light);
-	text-align: center;
-	transition: background-color 0.2s ease-in-out;
-	&:hover{background-color: var(--theme-base);} 
-	&:active{color: var(--theme-content-dark);}
+	background: linear-gradient(180deg, #FDD85C 0%, #F5C927 100%);
+	color: white;
+	&.secondary {
+		background: #8D8D8D;
+	}
 `
 
 const Button = (props) => {

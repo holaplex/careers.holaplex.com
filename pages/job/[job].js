@@ -14,6 +14,7 @@ import GenericContent from "../../components/genericContent";
 import Section from "../../components/section";
 import Container from "../../components/container";
 import formatDate from "../../utils/formatDate";
+import Button from "../../components/button";
 
 const components = { YouTube, TwitterTweetEmbed };
 const slugToJobContent = (jobContents => {
@@ -53,9 +54,9 @@ export default function Job({
 					<div className="w-full lg:w-11/12 mx-auto">
 						<div className="w-full flex flex-wrap gap-2 lg:gap-4 items-center">
 							{link ? <a href={link} target="_blank" rel="noreferrer">
-								<button className="bg-gray-700 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">
+								<Button className="bg-gray-700 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">
 									Apply
-								</button>
+								</Button>
 							</a> : <></>}
 							<p className="my-4">Posted {formatDate(dateString)}</p>
 						</div>

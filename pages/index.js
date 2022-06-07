@@ -11,20 +11,26 @@ import formatDate from '../utils/formatDate';
 import Image from 'next/image';
 
 function Job({ slug, date, title, description, link }) {
-	return <div className='p-4 border border-gray-600 my-4 rounded-xl relative overflow-hidden'>
+	return <div className='w-full md:w-5/12 lg:w-3/12 p-4 border border-gray-600 my-4 rounded-xl text-center relative overflow-hidden'>
 		<h2 className='mt-0'>{title}</h2>
 		<p className='mt-4 mb-0'>{description}</p>
-		<p className='mt-4 mb-0'>{formatDate(date)}</p>
-		<Link href={`/job/${slug}`}>
-			<a className='absolute inset-0' />
-		</Link>
-		{link ? <a href={link} className='absolute top-0 right-0 p-1' target='_blank' rel='noreferrer'>
-			🔗
-		</a> : <></>}
+		<div className='my-1 flex flex-wrap gap-1 items-center justify-center'>
+			<Link href={`/job/${slug}`}>
+				<a>
+					<Button className='my-1 secondary'>
+						Learn More
+					</Button>
+				</a>
+			</Link>
+			{link ? <a href={link} target='_blank' rel='noreferrer'>
+				<Button>Apply Now</Button>
+			</a> : <></>}
+		</div>
 	</div>
 }
 
 import hiringImage from '../public/img/hiring.png';
+import Button from '../components/button';
 
 export default function Home({ jobs, pagination }) {
 	let { title, text } = attributes;
@@ -46,9 +52,9 @@ export default function Home({ jobs, pagination }) {
 				</div>
 			</Section>
 			<Section>
-				<Container variant="slim" className='flex gap-4 flex-wrap justify-center items-center'>
+				<div className='flex gap-2 lg:gap-4 px-2 lg:px-4 flex-wrap justify-center items-center'>
 					{jobs.map(it => <Job key={it.slug} {...it} />)}
-				</Container>
+				</div>
 			</Section>
 		</Layout>
 	);
