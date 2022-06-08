@@ -12,7 +12,7 @@ const StyledButton = styled.button`
 const Button = (props) => {
 	const { children, className } = props;
 	return (
-		<StyledButton className={"rounded font-bold py-2 px-4 " + className}>
+		<StyledButton className={"rounded font-bold py-1 px-2 text-xs " + className}>
 			{children}
 		</StyledButton>
 	)
