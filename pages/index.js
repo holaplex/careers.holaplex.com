@@ -14,13 +14,13 @@ function Job({ slug, date, title, description, link }) {
 		<div className='flex gap-2 items-center justify-end' style={{ width: '11rem' }}>
 			<Link href={`/job/${slug}`}>
 				<a>
-					<Button className='my-1 secondary'>
+					<Button className='my-1 secondary' buttonStyle='small'>
 						Learn More
 					</Button>
 				</a>
 			</Link>
 			{link ? <a href={link} target='_blank' rel='noreferrer'>
-				<Button>Apply Now</Button>
+				<Button buttonStyle='small'>Apply Now</Button>
 			</a> : <></>}
 		</div>
 	</div>
