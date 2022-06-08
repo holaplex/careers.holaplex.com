@@ -40,7 +40,7 @@ export default function Home({ jobs, pagination }) {
 			<Section>
 				<div className='flex flex-col lg:flex-row gap-8 items-center mx-auto w-full p-8' style={{ maxWidth: '1200px' }}>
 					<div className='w-full lg:w-6/12 max-w-md'>
-						<Image alt='' src={hiringImage} />
+						<Image alt='' src={hiringImage} priority />
 					</div>
 					<div className='w-full lg:w-6/12 text-center lg:text-left'>
 						<h1>Careers at Holaplex</h1>
