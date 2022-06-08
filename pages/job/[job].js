@@ -54,7 +54,7 @@ export default function Job({
 					<div className="w-full lg:w-11/12 mx-auto">
 						<div className="w-full flex flex-wrap gap-2 lg:gap-4 items-center">
 							{link ? <a href={link} target="_blank" rel="noreferrer">
-								<Button className="bg-gray-700 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">
+								<Button>
 									Apply
 								</Button>
 							</a> : <></>}
@@ -63,6 +63,13 @@ export default function Job({
 						<GenericContent>
 							{content}
 						</GenericContent>
+						<div className="mx-auto text-center">
+							{link ? <a href={link} target="_blank" rel="noreferrer">
+								<Button>
+									Apply
+								</Button>
+							</a> : <></>}
+						</div>
 					</div>
 				</Container>
 			</Section>
