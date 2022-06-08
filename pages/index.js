@@ -44,7 +44,7 @@ export default function Home({ jobs, pagination }) {
 					</div>
 					<div className='w-full lg:w-6/12 text-center lg:text-left'>
 						<h1>Careers at Holaplex</h1>
-						<p>Selling NFTs is easier than ever thanks to Metaplex's AuctionHouse. NFTs never leave your wallet until sold and can be listed on any number of AuctionHouse supported marketplaces.</p>
+						<p>Holaplex is a startup in the Web3 NFT industry with an ambitious roadmap and an incredible opportunity. We are a team of innovators with a passion for blockchain technology and open source development. Our work will empower digital artists to reach and inspire more people than ever before. We’d like your help.</p>
 					</div>
 				</div>
 			</Section>
