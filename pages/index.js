@@ -33,10 +33,9 @@ import Button from '../components/button';
 export default function Home({ jobs, pagination }) {
 	let { title, text } = attributes;
 
-	console.log(pagination);
 	return (
 		<Layout theme='theme-primary'>
-			<Metadata title={title} />
+			<Metadata title={title} image={'/img/hiring-social.png'} description="Selling NFTs is easier than ever thanks to Metaplex's AuctionHouse. NFTs never leave your wallet until sold and can be listed on any number of AuctionHouse supported marketplaces." />
 
 			<Section>
 				<div className='flex flex-col lg:flex-row gap-8 items-center mx-auto w-full p-8' style={{ maxWidth: '1200px' }}>
